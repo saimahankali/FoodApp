@@ -259,6 +259,34 @@
         transform: scaleX(1); /* End with full underline width */
     }
 }
+         
+/* For medium screens (tablets and small desktops) */
+@media (max-width: 1024px) {
+    .item-card {
+        flex: 0 0 calc(45% - 20px);
+        max-width: calc(45% - 20px);
+    }
+  
+    
+}
+
+/* For small screens (phones) */
+@media (max-width: 768px) {
+  
+.item-card {
+        flex: 0 0 calc(48% - 20px);
+        max-width: calc(48% - 20px);
+    }
+ 
+}
+
+/* For very small screens (small phones) */
+@media (max-width: 480px) {
+    .item-card {
+        flex: 0 0 calc(100% - 20px);
+        max-width: 100%;
+    }
+}
 
 
         
