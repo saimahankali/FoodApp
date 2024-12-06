@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chicken Varieties</title>
+    <style>
+        /* General Navigation Styles */
+.navigation {
+    background-color: #343a40;
+    color: white;
+    border-radius: 20px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation container */
+.navigation nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Logo Styling */
+.navigation .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.navigation .logo img {
+    height: 40px; /* Adjust size as needed */
+    width: auto;
+    border-radius: 10px; /* Optional for rounded logo corners */
+    transition: transform 0.3s ease;
+}
+
+.navigation .logo:hover img {
+    transform: scale(1.1);
+}
+
+/* Navigation Links */
+.navigation-link {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    margin: 0 15px;
+}
+
+.navigation-link:hover {
+    color: orangered;
+}
+
+.navigation-link svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    vertical-align: middle;
+}
+
+/* General Anchor Tags in Navigation */
+.navigation a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+    margin: 0 15px;
+}
+
+.navigation a:hover {
+    color: orangered;
+}
+
+/* Add-to-Cart Button */
+.add-to-cart {
+    background-color: orangered;
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background-color: black;
+}
+
+/* Search Bar */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-left: 20px;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    font-size: 1rem;
+    flex: 1;
+}
+
+.search-bar button {
+    background-color: orangered;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: black;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navigation nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .search-bar {
+        flex: 1 1 100%;
+        margin: 10px 0;
+    }
+}
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            gap: 10px;
+        }
+
+        .chicken-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.chicken-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Style for the clicked state */
+.chicken-btn.clicked {
+    background-color: rgba(0, 0, 0, 0.668); /* Green color when clicked */
+    transform: scale(0.98); /* Slightly shrink the button */
+    box-shadow: 0 4px 8px rgba(0, 128, 0, 0.5); /* Add a shadow effect */
+}
+
+
+        #content-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            min-height: 200px;
+        }
+
+        #content-container p {
+            font-size: 1.2rem;
+            color: #6c757d;
+        }
+
+        #content-container h2 {
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navigation">
+            <nav>
+
+                <a class = "logo" href="home.html">
+                    <img src="https://sk-azeezbasha.github.io/naticocodemo/logo.jpg" alt="logo">
+                </a>
+
+                <!-- Home Icon (SVG) -->
+                <a href="home.html" class="navigation-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
+                        <path d="M8 3.293l4 4V14h-3v-3H7v3H4V7.293l4-4z"/>
+                    </svg>
+                    Home
+                </a>
+                
+                
+        
+                <!-- Signin Link -->
+                <a href="#signin">Signin</a>
+        
+                <!-- Basket Cart Icon (SVG) -->
+                <button class="add-to-cart">
+                    <i class="fa fa-shopping-cart"></i>Cart
+                </button>
+        
+                <!-- Search Bar -->
+                <div class="search-bar">
+                    <input type="text" placeholder="Search..." />
+                    <button>🔍</button>
+                </div>
+            </nav>
+        </div>
+        
+    
+    
+    </header>
+    <div class="button-container">
+        <button class="chicken-btn" onclick="renderContent('natichicken.html', this)">Nati Chicken</button>
+        <button class="chicken-btn" onclick="renderContent('farmchicken.html', this)">Farm Chicken</button>
+        <button class="chicken-btn" onclick="renderContent('kadakchicken.html', this)">Kadaknadh Chicken</button>
+    </div>
+    
+    <div id="content-container">
+        <p>Select a type of chicken to view details.</p>
+    </div>
+    
+
+    <script>
+            function renderContent(page, button) {
+            const contentContainer = document.getElementById('content-container');
+
+            // Reset the clicked state for all buttons
+            const allButtons = document.querySelectorAll('.chicken-btn');
+            allButtons.forEach(btn => btn.classList.remove('clicked'));
+
+            // Add the clicked class to the clicked button
+            button.classList.add('clicked');
+
+            // Fetch the content from the specified page and insert it into the container
+            fetch(page)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                })
+                .then((html) => {
+                    contentContainer.innerHTML = html;
+                })
+                .catch((error) => {
+                    contentContainer.innerHTML = `<p>Error loading content: ${error.message}</p>`;
+                });
+        }
+
+    </script>
+</body>
+</html>

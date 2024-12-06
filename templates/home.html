@@ -1,0 +1,974 @@
+<html>
+   <head> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="./styles/home.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+        <title>Home</title> 
+
+        <style>
+        .container {
+            /* background-color: black; */
+            padding: 0px 30px 30px 30px;
+            margin-top: 5px;
+            /* background-color: whitesmoke; */
+            /* background-color: rgba(255, 255, 255, 0.725); */
+            
+        }
+
+        header {
+    width: 100%;
+}
+/* General Navigation Styles */
+.navigation {
+    background-color: #343a40;
+    color: white;
+    border-radius: 20px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation container */
+.navigation nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Logo Styling */
+.navigation .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.navigation .logo img {
+    height: 40px; /* Adjust size as needed */
+    width: auto;
+    border-radius: 10px; /* Optional for rounded logo corners */
+    transition: transform 0.3s ease;
+}
+
+.navigation .logo:hover img {
+    transform: scale(1.1);
+}
+
+/* Navigation Links */
+.navigation-link {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    margin: 0 15px;
+}
+
+.navigation-link:hover {
+    color: orangered;
+}
+
+.navigation-link svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    vertical-align: middle;
+}
+
+/* General Anchor Tags in Navigation */
+.navigation a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+    margin: 0 15px;
+}
+
+.navigation a:hover {
+    color: orangered;
+}
+
+/* Add-to-Cart Button */
+.add-to-cart {
+    background-color: orangered;
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background-color: black;
+}
+
+/* Search Bar */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-left: 20px;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    font-size: 1rem;
+    flex: 1;
+}
+
+.search-bar button {
+    background-color: orangered;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: black;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navigation nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .search-bar {
+        flex: 1 1 100%;
+        margin: 10px 0;
+    }
+}
+
+
+
+
+/* Image Slider Styles */
+.image-slider {
+    position: relative;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.slider-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* Position dots on the bottom center of the images */
+.dots-container {
+    position: absolute;
+    bottom: 20px; /* Adjust the position of the dots */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.dots-container .dot {
+    height: 10px;
+    width: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.dots-container .dot.active {
+    background-color: #007bff;
+}
+
+/* Optional: Adjust size and behavior for smaller screens */
+@media (max-width: 768px) {
+    .slider-container img {
+        height: 250px;
+    }
+}
+
+
+
+
+
+        
+    .heading {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px); /* Subtle offset for animation */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.heading.visible {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Reset the offset */
+}
+
+.heading h2 {
+    color: orangered;
+    position: relative;
+    font-size: 2rem; /* Adjust as needed */
+}
+
+.heading h2::after {
+    content: "";
+    position: absolute;
+    border-radius: 20px;
+    bottom: -5px; /* Adjust underline position */
+    left: 50%; /* Start from the center */
+    width: 0;
+    height: 2px; /* Thickness of the underline */
+    background-color: orangered;
+    transition: all 0.6s ease-out;
+    transform: translateX(-50%);
+}
+
+.heading.visible h2::after {
+    border-radius: 20px;
+    width: 100%; /* Expand to full width */
+    left: 50%; /* Maintain center origin */
+    transform: translateX(-50%);
+}
+
+        .categories-container {
+            /* border: 2px solid green; */
+            background-color:#2d3238;
+            border-radius: 20px;
+            padding: 20px 10px 50px 50px;
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+        }
+        
+        .categories-container h2{
+            color: white;
+        }
+        
+        .category:hover {
+            width: fit-content;
+            height: fit-content;
+            /* background-color: #ffffff; White background on hover */
+            color: #000000; /* Black text on hover for readability */
+            transform: scale(1.05); /* Slight zoom effect */
+        }
+        
+        .notcoco-footer {
+    background-color: #343a40;
+    color: #f8f9fa;
+    padding: 40px 20px;
+    font-family: Verdana, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #ffcc00;
+}
+
+.footer-section p,
+.footer-section ul {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li a {
+    color: #f8f9fa;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #ffcc00;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    color: #f8f9fa;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #ffcc00;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.9rem;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+
+        
+        
+        .item-cards-container {
+            display: flex; /* Flex layout for horizontal alignment */
+            gap: 20px;
+            padding: 30px 20px;
+            border-radius: 20px;
+            /* background-color: rgb    a(255, 166, 0, 0.228); */
+           /* background-color: rgba(255, 255, 255, 0.857); */
+            overflow-x: scroll; /* Allow horizontal scrolling */
+            scroll-behavior: smooth; /* Smooth scrolling */
+            -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on touch devices */
+            max-width: 100%; /* Prevent container from expanding beyond the viewport */
+            padding-bottom: 20px; /* Add bottom padding to prevent scrollbar appearance */
+            scrollbar-width: none; /* Hide scrollbar in Firefox */
+        }
+        
+        .item-cards-container::-webkit-scrollbar {
+            display: none; /* Hide scrollbar in Webkit browsers (Chrome, Safari, etc.) */
+        }
+        
+        .item-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    flex: 0 0 calc(26% - 20px); /* Ensure cards take up 25% of container width, accounting for gap */
+    max-width: calc(25.5% - 20px); /* Prevent the card from exceeding its defined width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative; /* Allows positioning of the badge inside the card */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.item-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.item-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.bestseller-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 123, 255, 0.8); /* Blue background with slight transparency */
+    color: white;
+    padding: 5px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    z-index: 10; /* Ensures it appears above the image */
+}
+.new-arrival-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #28a745; /* Bright Green for New Arrival */
+    color: white;
+    padding: 5px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    z-index: 10; /* Ensure it stays on top of the image */
+}
+
+
+.item-details {
+    padding: 15px;
+    text-align: left;
+}
+
+.item-name {
+    font-size: 1.2rem;
+    color: #343a40;
+    margin-bottom: 10px;
+}
+
+.item-description {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 15px;
+}
+
+.item-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item-price {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.add-to-cart {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart i {
+    border-radius: 50%;
+    font-size: 1rem;
+    background-color: white;
+    color: #007bff;
+    padding: 4px;
+}
+
+.add-to-cart:hover {
+    background-color: orangered;
+}
+
+        /* Media Queries for Responsiveness */
+
+/* For large screens */
+@media (min-width: 1024px) {
+    .item-card {
+        flex: 0 0 calc(28% - 20px);
+        max-width: calc(25.5% - 20px);
+    }
+}
+
+/* For medium screens (tablets and small desktops) */
+@media (max-width: 1024px) {
+    .item-card {
+        flex: 0 0 calc(45% - 20px);
+        max-width: calc(45% - 20px);
+    }
+    .categories-container {
+        padding: 20px 10px 50px 20px;
+}
+    
+}
+
+/* For small screens (phones) */
+@media (max-width: 768px) {
+  
+.item-card {
+        flex: 0 0 calc(48% - 20px);
+        max-width: calc(48% - 20px);
+    }
+    .categories-container {
+        padding: 20px 10px 50px 20px;
+}
+}
+
+/* For very small screens (small phones) */
+@media (max-width: 480px) {
+    .item-card {
+        flex: 0 0 calc(100% - 20px);
+        max-width: 100%;
+    }
+    .categories-container {
+        padding: 20px 10px 50px 20px;
+}
+  .new-arrival-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #28a745; /* Bright Green for New Arrival */
+    color: white;
+    padding: 5px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    z-index: 10; /* Ensure it stays on top of the image */
+}
+
+}
+        </style>
+    </head> 
+    <body>
+        <div class="container">
+
+            <header>
+                <div class="navigation">
+                    <nav>
+
+                        <a class = "logo" href="home.html">
+                            <img src="https://sk-azeezbasha.github.io/naticocodemo/logo.jpg" alt="logo">
+                        </a>
+
+                        <!-- Home Icon (SVG) -->
+                        <a href="home.html" class="navigation-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
+                                <path d="M8 3.293l4 4V14h-3v-3H7v3H4V7.293l4-4z"/>
+                            </svg>
+                            Home
+                        </a>
+                        
+                        
+                
+                        <!-- Signin Link -->
+                        <a href="#signin">Signin</a>
+                
+                        <!-- Basket Cart Icon (SVG) -->
+                        <button class="add-to-cart">
+                            <i class="fa fa-shopping-cart"></i>Cart
+                        </button>
+                
+                        <!-- Search Bar -->
+                        <div class="search-bar">
+                            <input type="text" placeholder="Search..." />
+                            <button>🔍</button>
+                        </div>
+                    </nav>
+                </div>
+                
+            
+            
+            </header>
+           
+            <div class="image-slider">
+                <div class="slider-container">
+                    <img src="https://sk-azeezbasha.github.io/naticocodemo/naticoco%20banner3.png" alt="banner1">
+                    <img src="https://sk-azeezbasha.github.io/naticocodemo/naticoco%20banner2.png" alt="banner2">
+                    <img src="https://sk-azeezbasha.github.io/naticocodemo/naticoco%20site%20banner1.png" alt="banner3">
+                </div>
+                <div class="dots-container">
+                    <!-- Dots will be dynamically added here -->
+                </div>
+            </div>
+            <script>
+               let currentIndex = 0;
+
+                const images = document.querySelectorAll('.slider-container img');
+                const totalImages = images.length;
+                const dotsContainer = document.querySelector('.dots-container');
+
+                // Function to create dots dynamically
+                function createDots() {
+                    for (let i = 0; i < totalImages; i++) {
+                        const dot = document.createElement('span');
+                        dot.classList.add('dot');
+                        dotsContainer.appendChild(dot);
+                    }
+                }
+
+                // Function to show the image corresponding to the dot
+                function showSlide(index) {
+                    const slider = document.querySelector('.slider-container');
+                    slider.style.transform = `translateX(-${index * 100}%)`;
+
+                    // Update active dot
+                    const dots = document.querySelectorAll('.dots-container .dot');
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    dots[index].classList.add('active');
+                }
+
+                // Auto-slide functionality
+                setInterval(() => {
+                    currentIndex = (currentIndex + 1) % totalImages;
+                    showSlide(currentIndex);
+                }, 3000); // Change every 3 seconds
+
+                // Initialize dots and show the first slide
+                createDots();
+                showSlide(currentIndex);
+
+
+            </script>            
+            <div class="heading">
+                <h2>SHOP BY CATEGORY</h2><br>
+            </div>
+
+            <div class="categories-container">
+                <div class="category">
+                    <a href="chicken.html">
+                        <img src="../static/css/Images/1-removebg-preview.png" alt="Home" />
+                    </a>
+                </div>
+                <div class="category">
+                    <a href="marinated.html">
+                        <img src="../static/css/Images/2-removebg-preview.png" alt="Marinated" />
+                    </a>
+                </div>
+                <div class="category">
+                    <a href="heateat.html">
+                        <img src="../static/css/Images/3-removebg-preview.png" alt="Heat & Eat" />
+                    </a>
+                </div>
+                <div class="category">
+                    <a href="eggs.html">
+                        <img src="../static/css/Images/4-removebg-preview.png" alt="Eggs" />
+                    </a>
+                </div>
+                <div class="category">
+                    <a href="spices.html">
+                        <img src="../static/css/Images/5-removebg-preview.png" alt="Spices" />
+                    </a>
+                </div>
+                <div class="category">
+                    <a href="petfood.html">
+                        <img src="../static/css/Images/6-removebg-preview (1).png" alt="Pet Food" />
+                    </a>
+                </div>
+                <div class="category7">
+                    <a href="mutton.html">
+                        <img src="../static/css/Images/7-removebg-preview.png" alt="Mutton" />
+                    </a>
+                </div>
+                <div class="category">
+                    <a href="postorder.html">
+                        <img src="../static/css/Images/8-removebg-preview.png" alt="Post Order" />
+                    </a>
+                </div>
+               
+            </div>
+
+            <div class="heading">
+                <h2>BEST SELLERS</h2><br>
+            </div>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const headings = document.querySelectorAll(".heading");
+                
+                    const observer = new IntersectionObserver(
+                        (entries) => {
+                            entries.forEach((entry) => {
+                                if (entry.isIntersecting) {
+                                    entry.target.classList.add("visible");
+                                }
+                            });
+                        },
+                        { threshold: 0.5 } // Trigger when 50% of the element is visible
+                    );
+                
+                    headings.forEach((heading) => observer.observe(heading));
+                });
+            </script>
+
+            <div class="item-cards-container">
+                <div class="item-card">
+                    <div class="item-image-container">
+                        <img src="https://sk-azeezbasha.github.io/naticocodemo/Chicken%20Tandoori%20Legs%20(Marinated).jpg" alt="Dish Name" class="item-image" />
+                        <div class="bestseller-badge">Bestseller</div>
+                    </div>
+                    <div class="item-details">
+                        <h3 class="item-name">Chicken Tandoori Legs (Marinated).</h3>
+                        <p class="item-description">500g | 2-3 Pieces</p>
+                        <div class="item-footer">
+                            <span class="item-price">₹299</span>
+                            <button class="add-to-cart">
+                                <i class="fa fa-shopping-cart"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-image-container">
+                        <img src="https://sk-azeezbasha.github.io/naticocodemo/Chicken%20Lollypop%20(Marinated).jpg" alt="Dish Name" class="item-image" />
+                        <div class="bestseller-badge">Bestseller</div>
+                    </div>
+                    <div class="item-details">
+                        <h3 class="item-name">Chicken Lollypop (Marinated)</h3>
+                        <p class="item-description">500g | 2-3 Pieces</p>
+                        <div class="item-footer">
+                            <span class="item-price">₹299</span>
+                            <button class="add-to-cart">
+                                <i class="fa fa-shopping-cart"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat item-card for more items -->
+
+                <div class="item-card">
+                    <div class="item-image-container">
+                        <img src="https://sk-azeezbasha.github.io/naticocodemo/chicken%2065.jpg" alt="Dish Name" class="item-image" />
+                        <div class="bestseller-badge">Bestseller</div>
+                    </div>
+                    <div class="item-details">
+                        <h3 class="item-name">Chicken 65 (Marinated)</h3>
+                        <p class="item-description">500g | 2-3 Pieces</p>
+                        <div class="item-footer">
+                            <span class="item-price">₹299</span>
+                            <button class="add-to-cart">
+                                <i class="fa fa-shopping-cart"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item-card">
+                    <div class="item-image-container">
+                        <img src="https://sk-azeezbasha.github.io/naticocodemo/Chicken%20Kebab(Marinated).jpg" alt="Dish Name" class="item-image" />
+                        <div class="bestseller-badge">Bestseller</div>
+                    </div>
+                    <div class="item-details">
+                        <h3 class="item-name">Chicken Kebab(Marinated)</h3>
+                        <p class="item-description">500g | 2-3 Pieces</p>
+                        <div class="item-footer">
+                            <span class="item-price">₹299</span>
+                            <button class="add-to-cart">
+                                <i class="fa fa-shopping-cart"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item-card">
+                    <div class="item-image-container">
+                        <img src="https://sk-azeezbasha.github.io/naticocodemo/Chicken%20Curry%20Cut%20(Marinated).jpg" alt="Dish Name" class="item-image" />
+                        <div class="bestseller-badge">Bestseller</div>
+                    </div>
+                    <div class="item-details">
+                        <h3 class="item-name">Chicken Curry Cut (Marinated)/h3>
+                            <p class="item-description">500g | 2-3 Pieces</p>
+                        <div class="item-footer">
+                            <span class="item-price">₹299</span>
+                            <button class="add-to-cart">
+                                <i class="fa fa-shopping-cart"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item-card">
+                    <div class="item-image-container">
+                        <img src="https://static.toiimg.com/thumb/83114901.cms?imgsize=1443171&width=800&height=800" alt="Dish Name" class="item-image" />
+                        <div class="bestseller-badge">Bestseller</div>
+                    </div>
+                    <div class="item-details">
+                        <h3 class="item-name">Chicken Nuggets</h3>
+                        <p class="item-description">500g | 2-3 Pieces</p>
+                        <div class="item-footer">
+                            <span class="item-price">₹299</span>
+                            <button class="add-to-cart">
+                                <i class="fa fa-shopping-cart"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+
+
+
+            <div class="heading">
+                <h2>NEW ARRIVALS</h2><br>
+            </div>
+            
+            
+            
+
+            <div class="item-cards-container">
+                <!-- Paste Here -->
+                <div class="item-card">
+                    <div class="item-image-container">
+                        <img src="https://sk-azeezbasha.github.io/naticocodemo/Chicken%20Tandoori%20Legs%20(Marinated).jpg" alt="Dish Name" class="item-image" />
+                        <div class="new-arrival-badge">New Arrival</div>
+                    </div>
+                    <div class="item-details">
+                        <h3 class="item-name">Chicken Tandoori Legs (Marinated).</h3>
+                        <p class="item-description">500g | 2-3 Pieces</p>
+                        <div class="item-footer">
+                            <span class="item-price">₹299</span>
+                            <button class="add-to-cart">
+                                <i class="fa fa-shopping-cart"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-image-container">
+                        <img src="https://sk-azeezbasha.github.io/naticocodemo/Chicken%20Lollypop%20(Marinated).jpg" alt="Dish Name" class="item-image" />
+                        <div class="new-arrival-badge">New Arrival</div>                    </div>
+                    <div class="item-details">
+                        <h3 class="item-name">Chicken Lollypop (Marinated)</h3>
+                        <p class="item-description">500g | 2-3 Pieces</p>
+                        <div class="item-footer">
+                            <span class="item-price">₹299</span>
+                            <button class="add-to-cart">
+                                <i class="fa fa-shopping-cart"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <div class="item-image-container">
+                        <img src="https://sk-azeezbasha.github.io/naticocodemo/chicken%2065.jpg" alt="Dish Name" class="item-image" />
+                        <div class="new-arrival-badge">New Arrival</div>                    </div>
+                    <div class="item-details">
+                        <h3 class="item-name">Chicken 65 (Marinated)</h3>
+                        <p class="item-description">500g | 2-3 Pieces</p>
+                        <div class="item-footer">
+                            <span class="item-price">₹299</span>
+                            <button class="add-to-cart">
+                                <i class="fa fa-shopping-cart"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item-card">
+                    <div class="item-image-container">
+                        <img src="https://sk-azeezbasha.github.io/naticocodemo/Chicken%20Kebab(Marinated).jpg" alt="Dish Name" class="item-image" />
+                        <div class="new-arrival-badge">New Arrival</div>                    </div>
+                    <div class="item-details">
+                        <h3 class="item-name">Chicken Kebab(Marinated)</h3>
+                        <p class="item-description">500g | 2-3 Pieces</p>
+                        <div class="item-footer">
+                            <span class="item-price">₹299</span>
+                            <button class="add-to-cart">
+                                <i class="fa fa-shopping-cart"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item-card">
+                    <div class="item-image-container">
+                        <img src="https://sk-azeezbasha.github.io/naticocodemo/Chicken%20Curry%20Cut%20(Marinated).jpg" alt="Dish Name" class="item-image" />
+                        <div class="new-arrival-badge">New Arrival</div>                    </div>
+                    <div class="item-details">
+                        <h3 class="item-name">Chicken Curry Cut (Marinated)/h3>
+                            <p class="item-description">500g | 2-3 Pieces</p>
+                        <div class="item-footer">
+                            <span class="item-price">₹299</span>
+                            <button class="add-to-cart">
+                                <i class="fa fa-shopping-cart"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item-card">
+                    <div class="item-image-container">
+                        <img src="https://static.toiimg.com/thumb/83114901.cms?imgsize=1443171&width=800&height=800" alt="Dish Name" class="item-image" />
+                        <div class="new-arrival-badge">New Arrival</div>                    </div>
+                    <div class="item-details">
+                        <h3 class="item-name">Chicken Nuggets</h3>
+                        <p class="item-description">500g | 2-3 Pieces</p>
+                        <div class="item-footer">
+                            <span class="item-price">₹299</span>
+                            <button class="add-to-cart">
+                                <i class="fa fa-shopping-cart"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="item-card">
+                    <div class="item-image-container">
+                        <img src="https://www.shutterstock.com/image-photo/andhra-special-vegetarian-tasty-meals-600nw-1811725393.jpg" alt="Dish Name" class="item-image" />
+                        <div class="new-arrival-badge">New Arrival</div>
+                    </div>
+                    <div class="item-details">
+                        <h3 class="item-name"></h3>
+                        <p class="item-description">500g | 2-3 Pieces</p>
+                        <div class="item-footer">
+                            <span class="item-price">₹299</span>
+                            <button class="add-to-cart">
+                                <i class="fa fa-shopping-cart"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div> -->
+
+            </div>
+            
+            <footer class="notcoco-footer">
+                <div class="footer-container">
+                    <div class="footer-section about">
+                        <h3>About NATICOCO</h3>
+                        <p>
+                            NotCoco is your one-stop destination for delicious, sustainable, and eco-friendly meals. We are committed to bringing the best culinary experiences to your table while prioritizing the planet.
+                        </p>
+                    </div>
+            
+                    <div class="footer-section links">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#menu">Our Menu</a></li>
+                            <li><a href="#careers">Careers</a></li>
+                            <li><a href="#contact">Contact Us</a></li>
+                        </ul>
+                    </div>
+            
+                    <div class="footer-section contact">
+                        <h3>Contact Us</h3>
+                        <p><i class="fa fa-phone"></i> +91 98765 43210</p>
+                        <p><i class="fa fa-envelope"></i> support@naticoco.com</p>
+                        <p><i class="fa fa-map-marker"></i> 123 Eco Lane, Green City, India</p>
+                    </div>
+            
+                    <div class="footer-section social">
+                        <h3>Follow Us</h3>
+                        <div class="social-icons">
+                            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 NATICOCO. All rights reserved. | Designed with ❤️ by NATICOCO Team</p>
+                </div>
+            </footer>
+            
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="./styles/home.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+        
+    <style>
+        
+        .item-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Four equal columns */
+            gap: 20px; /* Spacing between the cards */
+            padding: 20px;
+            max-width: 1200px; /* Optional: Restrict width */
+            margin: 0 auto; /* Center the container */
+        }
+
+        .item-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .item-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .item-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .item-details {
+            padding: 15px;
+            text-align: left;
+        }
+
+        .item-name {
+            font-size: 1.2rem;
+            color: #343a40;
+            margin-bottom: 10px;
+        }
+
+        .item-description {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 15px;
+        }
+
+        .item-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .item-price {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .add-to-cart {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-to-cart i {
+            border-radius: 50%;
+            font-size: 1rem;
+            background-color: white;
+            color: #007bff;
+            padding: 4px;
+        }
+
+        .add-to-cart:hover {
+            background-color: orangered;
+        }
+        .heading {
+    color: orangered;
+    display: flex;
+    flex-direction: row;
+    position: relative; /* To position the pseudo-element correctly */
+}
+
+.heading::after {
+    content: ''; /* Required for the pseudo-element */
+    position: absolute;
+    bottom: 0; /* Position the underline at the bottom */
+    left: 0;
+    width: 100%; /* Full width of the element */
+    height: 2px; /* Height of the underline */
+    background-color: orangered;
+    transform: scaleX(0); /* Start the underline with no width */
+    transform-origin: bottom right; /* Make the animation grow from the right */
+    transition: transform 0.3s ease-out; /* Animate the underline */
+}
+
+/* Add the hover effect to trigger the animation */
+.heading:hover::after {
+    transform: scaleX(1); /* Expand the underline to full width */
+    transform-origin: bottom left; /* Make it expand from the left */
+}
+
+
+        
+    </style>
+</head>
+<body>
+    <div class="heading">
+        <h2>Nati Chicken</h2><br>
+    </div><br>
+    <div>
+    <div class="item-container">
+        <!-- Card 1 -->
+        <div class="item-card">
+            <img src="https://sk-azeezbasha.github.io/naticocodemo/Chicken%20curry%20cut%20With%20skin.png" alt="Dish Name" class="item-image" />
+            <div class="item-details">
+                <h3 class="item-name">Chicken Curry Cut (With Skin)</h3>
+                <p class="item-description">500g | 12-18 Pieces</p>
+                <div class="item-footer">
+                    <span class="item-price">₹299</span>
+                    <button class="add-to-cart">
+                        <i class="fa fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="item-card">
+            <img src="https://sk-azeezbasha.github.io/naticocodemo/Chicken%20Breast%20Boneless%20With%20skin.jpg" alt="Dish Name" class="item-image" />
+            <div class="item-details">
+                <h3 class="item-name">Chicken Breast Boneless (With Skin)</h3>
+                <p class="item-description">500g | 2-3 Pieces</p>
+                <div class="item-footer">
+                    <span class="item-price">₹299</span>
+                    <button class="add-to-cart">
+                        <i class="fa fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="item-card">
+            <img src="https://sk-azeezbasha.github.io/naticocodemo/Chicken%20Biryani%20Cut%20With%20Skin.png" alt="Dish Name" class="item-image" />
+            <div class="item-details">
+                <h3 class="item-name">Chicken Biryani Cut (With Skin)</h3>
+                <p class="item-description">500g | 6-8 Pieces</p>
+                <div class="item-footer">
+                    <span class="item-price">₹299</span>
+                    <button class="add-to-cart">
+                        <i class="fa fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="item-card">
+            <img src="https://sk-azeezbasha.github.io/naticocodemo/Chicken%20Drumsticks%20With%20skin.jpg" alt="Dish Name" class="item-image" />
+            <div class="item-details">
+                <h3 class="item-name">Chicken Drumsticks (With Skin)</h3>
+                <p class="item-description">500g | 5-6 Pieces</p>
+                <div class="item-footer">
+                    <span class="item-price">₹299</span>
+                    <button class="add-to-cart">
+                        <i class="fa fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Card 5 -->
+        <div class="item-card">
+            <img src="https://sk-azeezbasha.github.io/naticocodemo/chicken%20whole%20leg%20with%20skin.jpg" alt="Dish Name" class="item-image" />
+            <div class="item-details">
+                <h3 class="item-name">Chicken whole leg (With Skin)</h3>
+                <p class="item-description">500g | 2-3 Pieces</p>
+                <div class="item-footer">
+                    <span class="item-price">₹299</span>
+                    <button class="add-to-cart">
+                        <i class="fa fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Card 6 -->
+        <div class="item-card">
+            <img src="https://sk-azeezbasha.github.io/naticocodemo/chicken%20breast%20boneless%20without%20skin.jpg" alt="Dish Name" class="item-image" />
+            <div class="item-details">
+                <h3 class="item-name">Chicken breast boneless (Without Skin)</h3>
+                <p class="item-description">500g | 2-3 Pieces</p>
+                <div class="item-footer">
+                    <span class="item-price">₹299</span>
+                    <button class="add-to-cart">
+                        <i class="fa fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Card 7 -->
+        <div class="item-card">
+            <img src="https://sk-azeezbasha.github.io/naticocodemo/chicken%20curry%20cut%20without%20skin.png" alt="Dish Name" class="item-image" />
+            <div class="item-details">
+                <h3 class="item-name">Chicken curry cut (Without Skin)</h3>
+                <p class="item-description">500g | 12-16 Pieces</p>
+                <div class="item-footer">
+                    <span class="item-price">₹299</span>
+                    <button class="add-to-cart">
+                        <i class="fa fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- card 8 -->
+        <div class="item-card">
+            <img src="https://sk-azeezbasha.github.io/naticocodemo/Chicken%20drumsticks%20without%20skin.png" alt="Dish Name" class="item-image" />
+            <div class="item-details">
+                <h3 class="item-name">Chicken Drumsticks (Without Skin)</h3>
+                <p class="item-description">500g | 5-6 Pieces</p>
+                <div class="item-footer">
+                    <span class="item-price">₹299</span>
+                    <button class="add-to-cart">
+                        <i class="fa fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
